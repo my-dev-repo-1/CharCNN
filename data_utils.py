@@ -28,7 +28,7 @@ class Data(object):
     def loadData(self):
         data = []
         with open(self.data_source, 'rb') as f:
-            rdr = csv.reader(f, delimiter=',', quotechar='"')
+            rdr = csv.reader(f, delimiter=',', quotechar="'")
             for row in rdr:
                 txt = ""
                 for s in row[1:]:

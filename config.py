@@ -30,8 +30,8 @@ class Config(object):
     batch_size = 128
     no_of_classes = 4
 
-    train_data_source = 'data/ag_news_csv/train.csv'
-    dev_data_source = 'data/ag_news_csv/test.csv'
+    train_data_source = 'dataCalls/allTrain_ready.csv'
+    dev_data_source = 'dataCalls/allTest_ready.csv'
     
     training = TrainingConfig()
     

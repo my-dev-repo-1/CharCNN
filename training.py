@@ -6,18 +6,20 @@ import sys
 import os
 from data_utils import Data
 from char_cnn import CharConvNet
-
+import config
 
 if __name__ == '__main__':
-    execfile("config.py")
+    exec(open("config.py").read())
+    #config()
 
-    print "Loading data ....",
+    print("Loading data ....")
     train_data = Data(data_source = config.train_data_source,
                       alphabet = config.alphabet,
                       l0 = config.l0,
                       batch_size = config.batch_size,
                       no_of_classes = config.no_of_classes)
     train_data.loadData()
+    
     dev_data = Data(data_source = config.dev_data_source,
                       alphabet = config.alphabet,
                       l0 = config.l0,
@@ -28,9 +30,9 @@ if __name__ == '__main__':
 
     num_batches_per_epoch = int(train_data.getLength() / config.batch_size) + 1
     num_batch_dev = dev_data.getLength()
-    print "Loaded"
+    print("Loaded")
 
-    print "Training ===>"
+    print("Training ===>")
 
     with tf.Graph().as_default():
         session_conf = tf.ConfigProto(allow_soft_placement = True,
